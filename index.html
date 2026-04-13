@@ -4,23 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LS-Code-Dev | Official</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS: Il look del tuo laboratorio digitale */
+        :root {
+            --neon-green: #00ff41;
+            --bg-dark: #0a0a0a;
+            --text-white: #e0e0e0;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--neon-green);
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            border: 1px solid var(--neon-green);
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            color: var(--text-white);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .links {
+            margin: 25px 0;
+        }
+
+        .links a {
+            color: var(--neon-green);
+            text-decoration: none;
+            border: 1px solid var(--neon-green);
+            padding: 10px 20px;
+            margin: 5px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .links a:hover {
+            background: var(--neon-green);
+            color: var(--bg-dark);
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+
+        #terminal-text {
+            color: var(--text-white);
+            text-align: left;
+            margin-top: 30px;
+            padding: 15px;
+            background: #111;
+            border-left: 3px solid var(--neon-green);
+            min-height: 50px;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            background-color: var(--neon-green);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
 <body>
+
     <div class="container">
         <h1>LS-CODE-DEV</h1>
-        <p class="tagline">Compiling the future from the last row.</p>
+        <p class="tagline">"Cercavano di installare obbedienza. Abbiamo risposto con un kernel custom."</p>
         
         <div class="links">
-            <a href="https://github.com/ls-code-dev" target="_blank">GitHub</a>
-            <a href="[LINK-DEL-TUO-GITBOOK]" target="_blank">Documentation</a>
-            <a href="https://instagram.com/l30.nrd" target="_blank">Instagram</a>
+            <a href="https://github.com/ls-code-dev" target="_blank">GITHUB</a>
+            <a href="https://lscode.gitbook.io/" target="_blank">DOCUMENTAZIONE</a>
+            <a href="https://instagram.com/l30.nrd" target="_blank">INSTAGRAM</a>
         </div>
-        
-        <section id="mission">
-            <h2>The Mission</h2>
-            <p>Ottimizzazione hardware, Kernel custom e ribellione digitale.</p>
-        </section>
+
+        <div id="terminal-text">
+            <span id="typewriter"></span><span class="cursor">&nbsp;</span>
+        </div>
     </div>
+
+    <footer>
+        &copy; 2026 LS-Code-Dev - All rights reserved.
+    </footer>
+
+    <script>
+        // JavaScript: L'effetto macchina da scrivere per lo stile Swag
+        const text = "Inizializzazione sistema... \n> Accesso root eseguito. \n> Laboratorio clandestino attivo. \n> Ottimizzazione kernel in corso... \n> Pronto per il deployment.";
+        let i = 0;
+        const speed = 50;
+
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i) === '\n' ? '<br>' : text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        // Avvia l'effetto al caricamento della pagina
+        window.onload = typeWriter;
+    </script>
+
 </body>
 </html>
